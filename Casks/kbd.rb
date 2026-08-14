@@ -2,10 +2,10 @@ cask "kbd" do
   version "1.4.0"
   sha256 "3e68054d871746aaee36c1c0634881d1151b32d9280a392275922c2064decd5b"
 
-  url "https://github.com/GITHUB_USER/kbd/releases/download/v#{version}/KBD-#{version}.dmg"
+  url "https://github.com/spurious-cox/kbd/releases/download/v#{version}/KBD-#{version}.dmg"
   name "KBD"
   desc "Floating numeric keypad that types into any application's text field"
-  homepage "https://github.com/GITHUB_USER/kbd"
+  homepage "https://github.com/spurious-cox/kbd"
 
   livecheck do
     url :url

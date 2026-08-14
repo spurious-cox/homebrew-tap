@@ -4,9 +4,9 @@ Casks for my Mac apps.
 
 ## Usage
 
-    brew install --cask timmccoy/tap/kbd
+    brew install --cask spurious-cox/tap/kbd
 
-Homebrew reads `timmccoy/tap` as this repository, so there is no need to
+Homebrew reads `spurious-cox/tap` as this repository, so there is no need to
 `brew tap` first.
 
 ## Casks
