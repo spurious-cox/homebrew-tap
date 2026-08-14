@@ -4,10 +4,14 @@ Casks for my Mac apps.
 
 ## Usage
 
+    brew trust spurious-cox/tap
     brew install --cask spurious-cox/tap/kbd
 
 Homebrew reads `spurious-cox/tap` as this repository, so there is no need to
-`brew tap` first.
+`brew tap` first. It does refuse to load casks from a tap it doesn't know
+yet, which is what `brew trust` settles — once per tap, not once per install.
+Without it the install stops at `Refusing to load cask ... from untrusted
+tap`.
 
 ## Casks
 
