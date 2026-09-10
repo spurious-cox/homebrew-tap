@@ -16,12 +16,40 @@ cask "stache" do
 
   app "Stache.app"
 
-  # Stache installs a LaunchAgent when "Open Stache at login" is switched on,
-  # and that agent has KeepAlive. A running copy must be stopped before the
-  # bundle is replaced, or launchd restarts the OLD one mid-upgrade and the
-  # new version appears not to install at all.
-  uninstall launchctl: "com.timmccoy.stache",
-            quit:      "com.timmccoy.stache"
+  postflight_steps do
+    if_path_exists "Library/Caches/Homebrew/stache-login-agent.plist", base: :home do
+      copy "Library/Caches/Homebrew/stache-login-agent.plist",
+           "Library/LaunchAgents/com.timmccoy.stache.plist",
+           source_base: :home, target_base: :home
+      remove "Library/Caches/Homebrew/stache-login-agent.plist", base: :home
+      # Through a shell so the uid and the home directory are expanded there:
+      # a steps block takes no Ruby interpolation, and launchctl expands
+      # neither ~ nor $HOME itself.
+      run "/bin/sh",
+          args:         ["-c",
+                         "/bin/launchctl bootstrap gui/$(id -u) " \
+                         "\"$HOME/Library/LaunchAgents/com.timmccoy.stache.plist\""],
+          must_succeed: false
+    end
+  end
+
+  # ...but that also DELETES the agent's plist, so "Open Stache at login"
+  # silently turned itself off on every upgrade. The file is put aside before
+  # the upgrade and restored after it, rather than written from scratch here:
+  # the app owns its contents, and a copy of them in a cask would be one more
+  # thing to keep in step.
+  #
+  # UNINSTALL preflight, not install preflight: an upgrade uninstalls the old
+  # cask first, and that is what deletes the plist — by the time the install
+  # side runs there is nothing left to put aside. Measured, by watching a
+  # reinstall throw the agent away with the stanza sitting right there.
+  uninstall_preflight_steps do
+    if_path_exists "Library/LaunchAgents/com.timmccoy.stache.plist", base: :home do
+      copy "Library/LaunchAgents/com.timmccoy.stache.plist",
+           "Library/Caches/Homebrew/stache-login-agent.plist",
+           source_base: :home, target_base: :home
+    end
+  end
 
   zap trash: [
     "~/Library/Application Support/Stache",
