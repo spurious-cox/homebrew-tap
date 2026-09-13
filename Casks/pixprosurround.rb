@@ -1,6 +1,6 @@
 cask "pixprosurround" do
-  version "1.6.2"
-  sha256 "a8ff5a8a23aa5b7230c45c153b184684b20e8a26647eeab7440d6ac129e75496"
+  version "1.7.0"
+  sha256 "0e4500c7b563869895c95f1fc835ca6d3ca61b0b5c3e27295b2ac95a11d62312"
 
   url "https://github.com/spurious-cox/pixprosurround/releases/download/v#{version}/PixProSurround-#{version}.dmg"
   name "PixProSurround"
