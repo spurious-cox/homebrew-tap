@@ -1,6 +1,6 @@
 cask "pixprofittext" do
-  version "3.5.0"
-  sha256 "23ae85d025a2008234bb2de632d102bd5c20e9cf94ac15110bd19ee4c877ce70"
+  version "3.5.1"
+  sha256 "1e26c668d92d53a467eab0376156a949e198364d4f2617b0647453b49a4c6808"
 
   url "https://github.com/spurious-cox/pixprofittext/releases/download/v#{version}/PixProFitText-#{version}.dmg"
   name "PixProFitText"
