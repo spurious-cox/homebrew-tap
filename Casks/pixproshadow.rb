@@ -1,6 +1,6 @@
 cask "pixproshadow" do
-  version "7.6.0"
-  sha256 "286b56284c7abdae60f4a19c3b74f31d2ccd1ac4e1a01eec566305bff20495c8"
+  version "7.6.1"
+  sha256 "eb4001ba428b06032d6106f7cfc47c244566bbe3d9c80face2aea55391505e27"
 
   url "https://github.com/spurious-cox/pixproshadow/releases/download/v#{version}/PixProShadow-#{version}.dmg"
   name "PixProShadow"

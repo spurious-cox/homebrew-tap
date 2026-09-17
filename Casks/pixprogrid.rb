@@ -1,6 +1,6 @@
 cask "pixprogrid" do
-  version "1.4.0"
-  sha256 "533008d0a54fc8fb8fe0596a3d9777b8b38d45e3b0a09a493f314fd9ad17b74c"
+  version "1.4.1"
+  sha256 "b936d7dd45b4b468caea22f95765c687ce9be7ae93dbe6623f5c3720a2040ca0"
 
   url "https://github.com/spurious-cox/pixprogrid/releases/download/v#{version}/PixProGrid-#{version}.dmg"
   name "PixProGrid"
