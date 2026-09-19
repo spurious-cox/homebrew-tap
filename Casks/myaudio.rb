@@ -12,10 +12,10 @@ cask "myaudio" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
   # The app ships a single arm64 binary, so brew must refuse an Intel Mac
   # rather than install something that cannot launch.
   depends_on arch: :arm64
+  depends_on macos: :ventura
 
   app "MyAudio.app"
 
