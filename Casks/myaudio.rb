@@ -1,6 +1,6 @@
 cask "myaudio" do
-  version "1.0.5"
-  sha256 "6295dae997bfa44ef69a1901a20296a0ed10000208fc85d7a9bc55d7f7320873"
+  version "1.4.2"
+  sha256 "f3ebda1dacd596ebbc24fb60e3b0c1f63f53055bd8b20787af1465dfab21adbf"
 
   url "https://github.com/spurious-cox/myaudio/releases/download/v#{version}/MyAudio-#{version}.dmg"
   name "MyAudio"
@@ -44,5 +44,9 @@ cask "myaudio" do
     about the first time it runs: allow it to find devices on the local
     network, or the AirPlay rows stay empty. Bluetooth connect and disconnect
     needs its own permission, and without it the device list is read-only.
+
+    Playing the Mac through an Apple TV needs Accessibility permission, since
+    macOS offers that choice only in its own Sound settings, which MyAudio
+    opens and closes for you.
   EOS
 end
