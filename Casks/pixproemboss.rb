@@ -1,6 +1,6 @@
 cask "pixproemboss" do
-  version "2.7.1"
-  sha256 "4df800d4a3552053dd0670681525476429f23759b552ab9ae6c8025449097d69"
+  version "2.7.2"
+  sha256 "017868081f17e7171a76571a8dad867199d5830b6e7e2ee58da336c0815c27bc"
 
   url "https://github.com/spurious-cox/pixproemboss/releases/download/v#{version}/PixProEmboss-#{version}.dmg"
   name "PixProEmboss"
@@ -12,7 +12,7 @@ cask "pixproemboss" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :tahoe
 
   app "PixProEmboss.app"
 

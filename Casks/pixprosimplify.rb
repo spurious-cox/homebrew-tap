@@ -1,6 +1,6 @@
 cask "pixprosimplify" do
-  version "2.5.1"
-  sha256 "1331d0071b450dcefca23879b62e3220909fb0a7ff9c147e4fc08b541c857c4b"
+  version "2.5.2"
+  sha256 "84a094c32458989e558de830cd28766db2a7390b9d1827175813c64df02257d6"
 
   url "https://github.com/spurious-cox/pixprosimplify/releases/download/v#{version}/PixProSimplify-#{version}.dmg"
   name "PixProSimplify"
@@ -12,7 +12,7 @@ cask "pixprosimplify" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :tahoe
 
   app "PixProSimplify.app"
 

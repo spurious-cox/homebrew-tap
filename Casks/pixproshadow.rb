@@ -1,6 +1,6 @@
 cask "pixproshadow" do
-  version "7.6.1"
-  sha256 "eb4001ba428b06032d6106f7cfc47c244566bbe3d9c80face2aea55391505e27"
+  version "7.6.2"
+  sha256 "2b4eb9e4f0007676d04212907d69418480db076375d980773a834da927c05957"
 
   url "https://github.com/spurious-cox/pixproshadow/releases/download/v#{version}/PixProShadow-#{version}.dmg"
   name "PixProShadow"
@@ -12,7 +12,7 @@ cask "pixproshadow" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :tahoe
 
   app "PixProShadow.app"
 

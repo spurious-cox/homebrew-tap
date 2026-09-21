@@ -1,6 +1,6 @@
 cask "pixprosurround" do
-  version "1.7.1"
-  sha256 "fb4bc9c9b3381622983e0e9496f45d8ab93eefc9907efe669487aacbc694bd65"
+  version "1.7.2"
+  sha256 "914af88834df287adc2ce51d7f3401ce9fe1b43459f1c783a0101f46b193b2f1"
 
   url "https://github.com/spurious-cox/pixprosurround/releases/download/v#{version}/PixProSurround-#{version}.dmg"
   name "PixProSurround"
@@ -12,7 +12,7 @@ cask "pixprosurround" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :tahoe
 
   app "PixProSurround.app"
 

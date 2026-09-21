@@ -1,6 +1,6 @@
 cask "pixprotransform" do
-  version "1.3.1"
-  sha256 "7a10d490111f4544c363f0a61dca989c3504cbd38b2ea4c56ecbb3979b7918cc"
+  version "1.3.2"
+  sha256 "d429c6f96b871737ef1daa2889bfd569c6704e62e246acc4d221e6cecc7614f1"
 
   url "https://github.com/spurious-cox/pixprotransform/releases/download/v#{version}/PixProTransform-#{version}.dmg"
   name "PixProTransform"
@@ -12,7 +12,7 @@ cask "pixprotransform" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  depends_on macos: :tahoe
 
   app "PixProTransform.app"
 

@@ -1,6 +1,6 @@
 cask "pixprosplittext" do
-  version "8.5.1"
-  sha256 "b0886f1192faf80f6d5986cc67e39e0df7527852c38673e576ffcbdd8ef6fb83"
+  version "8.5.2"
+  sha256 "954fa4b64fc102eb46014ec75efde3fd6e076b7634db63dde32694479ad4b4ef"
 
   url "https://github.com/spurious-cox/pixprosplittext/releases/download/v#{version}/PixProSplitText-#{version}.dmg"
   name "PixProSplitText"
@@ -14,7 +14,7 @@ cask "pixprosplittext" do
 
   # The applet stub comes from the system it was built on, and this one
   # reports a minimum of macOS 26. An older Mac would refuse to launch it.
-  depends_on macos: :golden_gate
+  depends_on macos: :tahoe
 
   app "PixProSplitText.app"
 
