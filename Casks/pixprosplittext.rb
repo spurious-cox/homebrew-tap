@@ -12,7 +12,9 @@ cask "pixprosplittext" do
     strategy :github_latest
   end
 
-  depends_on macos: :ventura
+  # The applet stub comes from the system it was built on, and this one
+  # reports a minimum of macOS 26. An older Mac would refuse to launch it.
+  depends_on macos: ">= :golden_gate"
 
   app "PixProSplitText.app"
 
