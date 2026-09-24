@@ -1,6 +1,6 @@
 cask "pixproswaplayers" do
-  version "3.2.0"
-  sha256 "048dbb0d865ada637bb2a5b371dedac329a61e2e39f690d5d6d9db9671e469ab"
+  version "3.2.1"
+  sha256 "5440b464fa535e2fd655cecb632d37743473d84cd913acea80234f36bae7d44a"
 
   url "https://github.com/spurious-cox/pixproswaplayers/releases/download/v#{version}/PixProSwapLayers-#{version}.dmg"
   name "PixProSwapLayers"

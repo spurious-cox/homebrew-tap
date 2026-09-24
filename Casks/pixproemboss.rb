@@ -1,6 +1,6 @@
 cask "pixproemboss" do
-  version "2.7.3"
-  sha256 "bba54f71e718d9071f6d3b206a120d8992753e8c96ea772fdae80cf0909c7b62"
+  version "2.7.4"
+  sha256 "6bc428c4a6e5e8bdd9f12abf5be67e793a2967db2040ceb25157d7c4147f58e9"
 
   url "https://github.com/spurious-cox/pixproemboss/releases/download/v#{version}/PixProEmboss-#{version}.dmg"
   name "PixProEmboss"
