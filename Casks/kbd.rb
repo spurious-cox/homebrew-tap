@@ -1,6 +1,6 @@
 cask "kbd" do
-  version "1.6.0"
-  sha256 "dd97e1cd2e9429541cc6399d0f968064c29aa7050beaa48927abe013bf6a5767"
+  version "1.6.1"
+  sha256 "11a9012b02138599cd5fbad842d6d848cc006d21efcd2f285f0e18bcb299b7b7"
 
   url "https://github.com/spurious-cox/kbd/releases/download/v#{version}/KBD-#{version}.dmg"
   name "KBD"
