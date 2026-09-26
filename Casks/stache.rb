@@ -21,20 +21,16 @@ cask "stache" do
       copy "Library/Caches/Homebrew/stache-login-agent.plist",
            "Library/LaunchAgents/com.timmccoy.stache.plist",
            source_base: :home, target_base: :home
+      # Nothing here restarts the agent: Homebrew runs these steps in a
+      # sandbox that cannot reach launchd or Launch Services, so launchctl
+      # bootstrap and open both fail. The restored plist is loaded at the
+      # next login, or the app is opened by hand before then.
       remove "Library/Caches/Homebrew/stache-login-agent.plist", base: :home
-      # Through a shell so the uid and the home directory are expanded there:
-      # a steps block takes no Ruby interpolation, and launchctl expands
-      # neither ~ nor $HOME itself.
-      run "/bin/sh",
-          args:         ["-c",
-                         "/bin/launchctl bootstrap gui/$(id -u) " \
-                         "\"$HOME/Library/LaunchAgents/com.timmccoy.stache.plist\""],
-          must_succeed: false
     end
   end
 
-  # ...but that also DELETES the agent's plist, so "Open Stache at login"
-  # silently turned itself off on every upgrade. The file is put aside before
+  # The uninstall stanza below also DELETES the agent's plist, so "Open
+  # Stache at login" silently turned itself off on every upgrade. The file is put aside before
   # the upgrade and restored after it, rather than written from scratch here:
   # the app owns its contents, and a copy of them in a cask would be one more
   # thing to keep in step.
@@ -51,6 +47,13 @@ cask "stache" do
     end
   end
 
+  # Stache installs a LaunchAgent when "Open Stache at login" is switched on,
+  # and that agent has KeepAlive. A running copy must be stopped before the
+  # bundle is replaced, or launchd restarts the OLD one mid-upgrade and the
+  # new version appears not to install at all.
+  uninstall launchctl: "com.timmccoy.stache",
+            quit:      "com.timmccoy.stache"
+
   zap trash: [
     "~/Library/Application Support/Stache",
     "~/Library/Caches/Stache",
@@ -58,4 +61,9 @@ cask "stache" do
     "~/Library/Preferences/com.timmccoy.stache.plist",
     "~/Library/Saved Application State/com.timmccoy.stache.savedState",
   ]
+
+  caveats <<~EOS
+    An upgrade stops Stache. Open it again afterwards; if "Open Stache at login"
+    is on, it also starts at your next login.
+  EOS
 end

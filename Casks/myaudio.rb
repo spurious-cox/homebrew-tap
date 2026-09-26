@@ -24,15 +24,11 @@ cask "myaudio" do
       copy "Library/Caches/Homebrew/myaudio-agent.plist",
            "Library/LaunchAgents/com.timmccoy.myaudioagent.plist",
            source_base: :home, target_base: :home
+      # Nothing here restarts the agent: Homebrew runs these steps in a
+      # sandbox that cannot reach launchd or Launch Services, so launchctl
+      # bootstrap and open both fail. The restored plist is loaded at the
+      # next login, or the app is opened by hand before then.
       remove "Library/Caches/Homebrew/myaudio-agent.plist", base: :home
-      # Through a shell so the uid and the home directory are expanded there:
-      # a steps block takes no Ruby interpolation, and launchctl expands
-      # neither ~ nor $HOME itself.
-      run "/bin/sh",
-          args:         ["-c",
-                         "/bin/launchctl bootstrap gui/$(id -u) " \
-                         "\"$HOME/Library/LaunchAgents/com.timmccoy.myaudioagent.plist\""],
-          must_succeed: false
     end
   end
 
@@ -77,5 +73,8 @@ cask "myaudio" do
     Playing the Mac through an Apple TV needs Accessibility permission, since
     macOS offers that choice only in its own Sound settings, which MyAudio
     opens and closes for you.
+
+    An upgrade stops the AirPlay agent. Open MyAudio once afterwards to start
+    it again; otherwise it starts at your next login.
   EOS
 end

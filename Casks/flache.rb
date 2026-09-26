@@ -16,23 +16,19 @@ cask "flache" do
 
   app "Flache.app"
 
-  # Replacing the bundle deletes the login agent's plist, so "Open Flache at
-  # login" would turn itself off on every upgrade. The plist is put aside
+  # The uninstall stanza below deletes the login agent's plist, so "Open
+  # Flache at login" would turn itself off on every upgrade. The plist is put aside
   # before the old copy is uninstalled and restored afterwards.
   postflight_steps do
     if_path_exists "Library/Caches/Homebrew/flache-login-agent.plist", base: :home do
       copy "Library/Caches/Homebrew/flache-login-agent.plist",
            "Library/LaunchAgents/com.timmccoy.flache.plist",
            source_base: :home, target_base: :home
+      # Nothing here restarts the agent: Homebrew runs these steps in a
+      # sandbox that cannot reach launchd or Launch Services, so launchctl
+      # bootstrap and open both fail. The restored plist is loaded at the
+      # next login, or the app is opened by hand before then.
       remove "Library/Caches/Homebrew/flache-login-agent.plist", base: :home
-      # Through a shell so the uid and home directory are expanded there:
-      # a steps block takes no Ruby interpolation, and launchctl expands
-      # neither ~ nor $HOME itself.
-      run "/bin/sh",
-          args:         ["-c",
-                         "/bin/launchctl bootstrap gui/$(id -u) " \
-                         "\"$HOME/Library/LaunchAgents/com.timmccoy.flache.plist\""],
-          must_succeed: false
     end
   end
 
@@ -46,9 +42,19 @@ cask "flache" do
     end
   end
 
+  # The login agent has KeepAlive. A running copy must be stopped before the
+  # bundle is replaced, or launchd restarts the OLD one mid-upgrade.
+  uninstall launchctl: "com.timmccoy.flache",
+            quit:      "com.timmccoy.flache"
+
   zap trash: [
     "~/Library/LaunchAgents/com.timmccoy.flache.plist",
     "~/Library/Preferences/com.timmccoy.flache.plist",
     "~/Library/Saved Application State/com.timmccoy.flache.savedState",
   ]
+
+  caveats <<~EOS
+    An upgrade stops Flache. Open it again afterwards; if "Open Flache at login"
+    is on, it also starts at your next login.
+  EOS
 end
