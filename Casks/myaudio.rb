@@ -19,13 +19,42 @@ cask "myaudio" do
 
   app "MyAudio.app"
 
+  postflight_steps do
+    if_path_exists "Library/Caches/Homebrew/myaudio-agent.plist", base: :home do
+      copy "Library/Caches/Homebrew/myaudio-agent.plist",
+           "Library/LaunchAgents/com.timmccoy.myaudioagent.plist",
+           source_base: :home, target_base: :home
+      remove "Library/Caches/Homebrew/myaudio-agent.plist", base: :home
+      # Through a shell so the uid and the home directory are expanded there:
+      # a steps block takes no Ruby interpolation, and launchctl expands
+      # neither ~ nor $HOME itself.
+      run "/bin/sh",
+          args:         ["-c",
+                         "/bin/launchctl bootstrap gui/$(id -u) " \
+                         "\"$HOME/Library/LaunchAgents/com.timmccoy.myaudioagent.plist\""],
+          must_succeed: false
+    end
+  end
+
+  # The uninstall stanza below deletes the agent's plist, so the AirPlay agent
+  # stayed down after every upgrade until MyAudio was next opened. The file is
+  # put aside before the old copy is removed and restored after the new one is
+  # in place. The plist names /Applications/MyAudio.app, which is where the
+  # new copy lands, and MyAudio still rewrites it at launch if it differs.
+  #
+  # UNINSTALL preflight, not install preflight: an upgrade uninstalls the old
+  # cask first, and that is what deletes the plist.
+  uninstall_preflight_steps do
+    if_path_exists "Library/LaunchAgents/com.timmccoy.myaudioagent.plist", base: :home do
+      copy "Library/LaunchAgents/com.timmccoy.myaudioagent.plist",
+           "Library/Caches/Homebrew/myaudio-agent.plist",
+           source_base: :home, target_base: :home
+    end
+  end
+
   # The AirPlay agent runs under launchd, outside the app, because that is the
   # only way it can hold Local Network permission. Stopping it here keeps
   # launchd from restarting the old copy in the middle of an upgrade.
-  #
-  # This stanza also deletes the agent's plist, which for most apps would turn
-  # a login item off on every upgrade. Not here: MyAudio writes the plist
-  # itself at launch, naming its own bundle, so the next start puts it back.
   uninstall launchctl: "com.timmccoy.myaudioagent",
             quit:      "com.timmccoy.myaudioctl"
 
