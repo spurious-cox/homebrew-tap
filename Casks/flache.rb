@@ -1,6 +1,6 @@
 cask "flache" do
-  version "1.7.2"
-  sha256 "a3ee91ed8061591a708273f7d1ab6b15f7f5b6b0c1cdefd192c11484d3ef63e9"
+  version "1.7.3"
+  sha256 "e966f4b08757d084c7d4f6ff844b78b88af40a7752cf3db3da87b5280f6607dd"
 
   url "https://github.com/spurious-cox/flache/releases/download/v#{version}/Flache-#{version}.dmg"
   name "Flache"
