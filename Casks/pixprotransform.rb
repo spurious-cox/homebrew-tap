@@ -1,6 +1,6 @@
 cask "pixprotransform" do
-  version "1.3.4"
-  sha256 "c494b20f8493502f4f052df428e660ffeb84da7215043a45a0e223d179dbf7c6"
+  version "1.3.5"
+  sha256 "47c1bb87f0a190f0e4ff9ce2d40688936b71c87eded6357603e439f742047640"
 
   url "https://github.com/spurious-cox/pixprotransform/releases/download/v#{version}/PixProTransform-#{version}.dmg"
   name "PixProTransform"
