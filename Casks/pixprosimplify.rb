@@ -1,6 +1,6 @@
 cask "pixprosimplify" do
-  version "2.5.4"
-  sha256 "688a7a6e7a1f75279537c88d059fd5b10b8c77358c54cd635611e908d7c847e1"
+  version "2.5.5"
+  sha256 "5217cbff2c5659d107a603c44acfa06fa8e539d0cd6149c203cf23a032b04fd7"
 
   url "https://github.com/spurious-cox/pixprosimplify/releases/download/v#{version}/PixProSimplify-#{version}.dmg"
   name "PixProSimplify"
