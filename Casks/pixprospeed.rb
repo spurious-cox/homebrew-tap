@@ -1,6 +1,6 @@
 cask "pixprospeed" do
-  version "2.6.4"
-  sha256 "15b30c1eb9343bd2d1b90e5020eee9656a70f2adbf32fe25537058113289202b"
+  version "2.6.5"
+  sha256 "43b87db9030b8751ae2d79e4d19fa8e53e19a726cc84cc13c7d37bc7f2d43b3b"
 
   url "https://github.com/spurious-cox/pixprospeed/releases/download/v#{version}/PixProSpeed-#{version}.dmg"
   name "PixProSpeed"
