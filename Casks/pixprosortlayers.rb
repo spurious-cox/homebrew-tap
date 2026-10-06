@@ -1,6 +1,6 @@
 cask "pixprosortlayers" do
-  version "2.1.1"
-  sha256 "33349e65d661e95f5d03bc718e7f3d2505a1e7a23d31713c66ba2d0c04935d42"
+  version "2.1.2"
+  sha256 "30df81c8c48486c752a945ddc22f903b722dda31d991221be7057dd24ce63559"
 
   url "https://github.com/spurious-cox/pixprosortlayers/releases/download/v#{version}/PixProSortLayers-#{version}.dmg"
   name "PixProSortLayers"

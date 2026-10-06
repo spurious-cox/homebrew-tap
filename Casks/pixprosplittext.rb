@@ -1,6 +1,6 @@
 cask "pixprosplittext" do
-  version "8.6.0"
-  sha256 "bd78d2231255e5a33416550fd14560016f476aa1ee80616e5567ceae2860ded4"
+  version "8.6.1"
+  sha256 "f8a1c9af9f74fdd77824ae6c9389478838d7b75371c5a374f420b42888230d7b"
 
   url "https://github.com/spurious-cox/pixprosplittext/releases/download/v#{version}/PixProSplitText-#{version}.dmg"
   name "PixProSplitText"
