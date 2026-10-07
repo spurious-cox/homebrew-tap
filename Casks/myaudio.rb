@@ -1,6 +1,6 @@
 cask "myaudio" do
-  version "1.6.1"
-  sha256 "dbff478486319dc666d3003dd7c816ff8f279592c6b17b15ea59fbe12bed896a"
+  version "1.7.0"
+  sha256 "c2190ee1715c7f290abd42fef3bcd83e73641b7f7df6ca113a54aa654f7d82cc"
 
   url "https://github.com/spurious-cox/myaudio/releases/download/v#{version}/MyAudio-#{version}.dmg"
   name "MyAudio"
