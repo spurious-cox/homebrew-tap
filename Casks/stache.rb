@@ -1,6 +1,6 @@
 cask "stache" do
-  version "2.20.0"
-  sha256 "4729e763d68e88ef491d25af5dc819b75529fa49ae9d15a8d0d8d077a10d67da"
+  version "2.21.0"
+  sha256 "0a022b09d4fe59e8c0de2c73d79f8f90f2f4faf975a9a436229e7eed0f9fd678"
 
   url "https://github.com/spurious-cox/stache/releases/download/v#{version}/Stache-#{version}.dmg"
   name "Stache"
