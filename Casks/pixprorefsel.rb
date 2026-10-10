@@ -1,6 +1,6 @@
 cask "pixprorefsel" do
-  version "1.6.1"
-  sha256 "68508025c3fa2c8c2552c0a9b229768bdad67300eb0f7ea735e00021de0b7b84"
+  version "1.6.2"
+  sha256 "60cf33adb8bf0b83fd5191766c692291026b666a3dc1ca1c474fb186e22604d2"
 
   url "https://github.com/spurious-cox/pixprorefsel/releases/download/v#{version}/PixProRefsel-#{version}.dmg"
   name "PixProRefsel"
