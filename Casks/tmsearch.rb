@@ -1,6 +1,6 @@
 cask "tmsearch" do
-  version "1.6.2"
-  sha256 "07180ec9197009ca7b54acf46e2ce2ffa85f3fe41d9888c8d419962dd550a33e"
+  version "1.7.0"
+  sha256 "c2c594dd95a8713de669ba8001e1780cedc3f5ffde24257fda0b59ded1fb7bf9"
 
   url "https://github.com/spurious-cox/tmsearch/releases/download/v#{version}/TMsearch-#{version}.dmg"
   name "TMsearch"
