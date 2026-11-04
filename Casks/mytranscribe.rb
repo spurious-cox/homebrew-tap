@@ -4,7 +4,7 @@ cask "mytranscribe" do
 
   url "https://github.com/spurious-cox/MyTranscribe/releases/download/v#{version}/MyTranscribe-#{version}.dmg"
   name "MyTranscribe"
-  desc "Transcribes Mac audio or your microphone on-device with Whisper"
+  desc "Transcribes system audio or your microphone on-device with Whisper"
   homepage "https://github.com/spurious-cox/MyTranscribe"
 
   livecheck do
@@ -13,7 +13,7 @@ cask "mytranscribe" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "MyTranscribe.app"
 
