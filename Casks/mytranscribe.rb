@@ -1,6 +1,6 @@
 cask "mytranscribe" do
-  version "2.8.1"
-  sha256 "4867b4413c7b11c052bb7e38db255ab3596fe8d80b6dc4326dfa7a08bc7e2d95"
+  version "2.9.0"
+  sha256 "c079d684095dfb61125c215eb25f9eba649010e29ed477818dea785fe2038737"
 
   url "https://github.com/spurious-cox/MyTranscribe/releases/download/v#{version}/MyTranscribe-#{version}.dmg"
   name "MyTranscribe"
