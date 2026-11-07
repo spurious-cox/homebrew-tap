@@ -1,6 +1,6 @@
 cask "pixproshaper" do
-  version "2.6.2"
-  sha256 "7cbb4ffa5f8ccf613c0f210591715b15c80db320735088a9642bfe0337c0ab56"
+  version "2.6.3"
+  sha256 "b9e97c31a53a3227a5b6aa682df91081d03b71d7c41eba9ed4f399489b7ab618"
 
   url "https://github.com/spurious-cox/pixproshaper/releases/download/v#{version}/PixProShaper-#{version}.dmg"
   name "PixProShaper"
