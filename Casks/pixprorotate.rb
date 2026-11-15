@@ -1,6 +1,6 @@
 cask "pixprorotate" do
-  version "2.2.0"
-  sha256 "35bb6227786f9e03d3cf40851f9c043de8a9a8989508abca07e162d3f31c2564"
+  version "2.3.0"
+  sha256 "21ed3de52f1aeb8df036245fcaaff5929c524f47afa3776a5b955cf4c567715e"
 
   url "https://github.com/spurious-cox/pixprorotate/releases/download/v#{version}/PixProRotate-#{version}.dmg"
   name "PixProRotate"
