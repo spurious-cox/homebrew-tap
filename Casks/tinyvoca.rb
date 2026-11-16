@@ -1,6 +1,6 @@
 cask "tinyvoca" do
-  version "1.0.0"
-  sha256 "3009b4a335997bddff08fefba532366f3bd8e108503706ce7c03f6e438d5dfcf"
+  version "1.1.0"
+  sha256 "6c354bb4f06b2b083fa15a79dc7d43c96c7a3df7a461f95bb1b13ac9835f43cc"
 
   url "https://github.com/spurious-cox/tinyvoca/releases/download/v#{version}/TinyVoca-#{version}.dmg"
   name "TinyVoca"
