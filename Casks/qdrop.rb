@@ -1,6 +1,6 @@
 cask "qdrop" do
-  version "1.4.2"
-  sha256 "39c6d3ab0dfcf219ab9f302d4ceca7448545b0cc5c49797150639f8941fe177f"
+  version "1.4.3"
+  sha256 "d2d74091ff84e17f3f6299bb0c36d015d8e1649c39b1d89e87a0bbc40979f979"
 
   url "https://github.com/spurious-cox/qdrop/releases/download/v#{version}/QDrop-#{version}.dmg"
   name "QDrop"
